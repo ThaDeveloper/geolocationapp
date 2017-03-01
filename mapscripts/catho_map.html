@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+<!-- load google maps API .....sensor="" indicates whether this application uses a sensor (such as a GPS locator)-->
+<!--https is necessary for SSL apps,recommended for applications that include sensitive user data, such as a user's location, in requests.-->
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKF60cPPzzx1Wn5z9QutliPnbBiXTN_Z0&sensor=true">
+    </script>
+    <script type="text/javascript">
+	<!--code instructs the application to load the Maps API after the page has fully loaded-->
+      function initialize() {
+	  <!--To initialize a Map, we first create a Map options object to contain map initialization variables-->
+        var mapOptions = {
+          <!--center: new google.maps.LatLng(-0.3969389301190115, 36.96078073563583),-->
+		  center: new google.maps.LatLng(-0.3930169673564376, 36.9562858986419),
+          zoom: 20,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+	 
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+  <!-- to ensure that our map is placed on the page after the page has fully loaded-->
+    <div id="map-canvas"/>
+  </body>
+</html>
